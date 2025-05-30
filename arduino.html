@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم الإلكترونيات الشامل للأطفال</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .light-on {
+            opacity: 1 !important;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 0, 0.7));
+        }
+        .text-glow {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+        }
+        /* Custom styles for light blue background */
+        body {
+            background-color: #E0F2F7; /* A very light sky blue */
+        }
+        .nav-button.active, .hero-tab-button.active, .sub-tab-button.active {
+            background-color: #A7D9EE !important; /* A slightly darker sky blue for active state */
+            color: #1F2937 !important; /* Dark text for contrast */
+        }
+        .bg-white-glow {
+            background-color: #FFFFFF; /* White */
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3) inset; /* Soft white glow */
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .bg-white-glow:hover {
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5) inset;
+        }
+        .bg-white-glow:active {
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2) inset;
+        }
+
+        /* Specific styling for Arduino code blocks */
+        pre {
+            background-color: #2D3748; /* Dark background for code */
+            color: #A7D9EE; /* Light blue text for code */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: monospace;
+            direction: ltr; /* Ensure code displays left-to-right */
+            text-align: left;
+            font-size: 0.9em;
+        }
+    </style>
+    </head>
+<body class="bg-blue-50 text-stone-800 font-sans leading-relaxed">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-4 text-glow">عالم الإلكترونيات الشامل للأطفال!</h1>
+            <p class="text-xl text-blue-700">استكشفوا أسرار الكهربا، المكونات، الأردوينو، والحساسات بطريقة سهلة وممتعة!</p>
+        </header>
+
+        <nav class="mb-12">
+            <ul class="flex flex-wrap justify-center gap-4 text-lg font-semibold">
+                <li><button class="nav-button active bg-blue-400 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-500 transition duration-300" data-section="intro">المقدمة</button></li>
+                <li><button class="nav-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-lg hover:bg-stone-100 transition duration-300" data-section="fundamentals">الأساسيات</button></li>
+                <li><button class="nav-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-lg hover:bg-stone-100 transition duration-300" data-section="heroes">أبطال الإلكترونيات</button></li>
+                <li><button class="nav-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-lg hover:bg-stone-100 transition duration-300" data-section="arduino">عالم الأردوينو</button></li>
+                <li><button class="nav-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-lg hover:bg-stone-100 transition duration-300" data-section="safety">نصائح الأمان</button></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="intro" class="section-content bg-white p-8 rounded-lg shadow-xl mb-8">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-300 pb-2">مقدمة إلى عالم الإلكترونيات</h2>
+                <p class="mb-4 text-lg">ببساطة خالص، الإلكترونيات دي هي دراسة إزاي نتحكم في الكهربا ونخليها تعملنا حاجات مفيدة جداً. تخيلوا إن الكهربا دي زي الجندي المطيع اللي بيسمع الكلام، والإلكترونيات هي القواعد اللي بنقولها للجندي ده عشان يعمل اللي إحنا عايزينه بالظبط. زي الموبايل اللي في إيدينا، أو التلفزيون الذكي، أو حتى اللعبة اللي بتنور وتتحرك وتطلع أصوات. كل ده معمول بالإلكترونيات!</p>
+                <p class="mb-4 text-lg">في هذا القسم، سنتعرف على المبادئ الأساسية للإلكترونيات وكيف تعمل المكونات المختلفة معًا لإنشاء أجهزة رائعة. استعدوا لرحلة ممتعة ومليئة بالاكتشاف!</p>
+            </section>
+
+            <section id="fundamentals" class="section-content bg-white p-8 rounded-lg shadow-xl mb-8 hidden">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-300 pb-2">أساسيات لازم نعرفها كويس</h2>
+                <p class="mb-4 text-lg">قبل ما نتعمق في أبطال الإلكترونيات، لازم نفهم شوية حاجات أساسية عن الكهربا والدوائر الكهربية. دي المفاتيح اللي هتفتح لينا أبواب الفهم!</p>
+
+                <div class="mb-6">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-3">1. الكهربا</h3>
+                    <p class="mb-4 text-lg">تخيلوا إنها زي الماية اللي ماشية في مواسير. بس الماية دي مش بنشوفها، هي عبارة عن جزيئات صغيرة جداً (اسمها "إلكترونات") بتتحرك بسرعة رهيبة. الكهربا دي هي القوة اللي بتخلي الأجهزة تشتغل. بنقيسها بحاجات زي "الفولت" (قوة الدفعة) و"الأمبير" (كمية الكهربا اللي ماشية).</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-3">2. الدايرة الكهربية</h3>
+                    <p class="mb-4 text-lg">دي بقى زي طريق الكهربا الكامل والمقفول اللي الكهربا لازم تمشي فيه عشان توصل للحاجة اللي عايزين نشغلها. لو الطريق ده مفتوح (يعني فيه سلك مقطوع أو مفتاح مش مقفول)، الكهربا مش هتمشي ومش هتشتغل الحاجة.</p>
+                    <ul class="list-disc list-inside text-lg ml-4">
+                        <li class="mb-2"><strong class="text-blue-600">البطارية (Power Source):</strong> دي زي خزان الماية اللي بيطلع الكهربا. ليها طرف موجب (+) وطرف سالب (-). الكهربا بتطلع من الموجب وترجع للسالب.</li>
+                        <li class="mb-2"><strong class="text-blue-600">الأسلاك (Wires):</strong> دي المواسير اللي الكهربا بتمشي فيها. بتكون مصنوعة من مواد بتوصل الكهربا كويس زي النحاس.</li>
+                        <li class="mb-2"><strong class="text-blue-600">اللمبة (LED - Light Emitting Diode):</strong> دي الحاجة اللي عايزين نشغلها، زي الحنفية اللي الماية بتنزل منها بس هنا بتطلع نور. الـ LED ليه طرف طويل (موجب) وطرف قصير (سالب)، ولازم يتوصل صح عشان ينور.</li>
+                        <li class="mb-2"><strong class="text-blue-600">المقاومة (Resistor):</strong> دي زي صمام بيتحكم في كمية الكهربا اللي ماشية عشان اللمبة متتحرقش أو عشان نظبط التيار اللي رايح لحاجة معينة. كل مقاومة ليها قيمة معينة بنقيسها بحاجة اسمها "أوم" (Ohm).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="heroes" class="section-content bg-white p-8 rounded-lg shadow-xl mb-8 hidden">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-300 pb-2">أبطال الإلكترونيات اللي هنتكلم عنهم بالتفصيل</h2>
+                <p class="mb-4 text-lg">هنا بقى هنقابل الأبطال الحقيقيين في عالم الإلكترونيات! كل بطل ليه قدرة خاصة بيه، وهنعمل تجارب بسيطة عشان نفهم قدراتهم دي كويس.</p>
+
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="hero-tab-button active bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition duration-300" data-hero="transistor">الترانزستور</button>
+                    <button class="hero-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-hero="logic-gates">بوابات المنطق</button>
+                    <button class="hero-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-hero="ldr">المقاومة الحساسة للضوء (LDR)</button>
+                    <button class="hero-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-hero="timer555">مؤقت الـ 555</button>
+                </div>
+
+                <div id="transistor-content" class="hero-content bg-stone-100 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">1. الترانزستور (Transistor): المفتاح السحري والمكبر!</h3>
+                    <p class="mb-4 text-lg">تخيلوا إن الترانزستور ده مش بس مفتاح نور سحري، ده كمان ممكن يكون مكبر صوت! هو ليه 3 أطراف أساسية: الـ Base (القاعدة)، الـ Collector (المجمع)، والـ Emitter (المُخرج). في تجربتنا دي، هنشوف إزاي بيشتغل كمفتاح.</p>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">الترانزستور الـ NPN:</h4>
+                    <p class="mb-4 text-lg">تخيلوا إن ده باب مقفول. لما تيجي إشارة كهربا صغيرة (موجبة) على "البوابة" بتاعته (الـ Base)، الباب ده بيفتح ويعدي كهربا كبيرة جداً من الـ Collector للـ Emitter.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">تجربة بسيطة (مفتاح تحكم في لمبة):</h5>
+                    <p class="mb-4 text-base">في التجربة دي، هنستخدم زرار عشان نتحكم في لمبة LED عن طريق الترانزستور. لما نضغط على الزرار، الترانزستور هيفتح واللمبة هتنور!</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl">🔋</span>
+                                <span class="text-sm">بطارية</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl opacity-30 transition-opacity duration-300" id="transistorLed">💡</span>
+                                <span class="text-sm">لمبة LED</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl">〰️</span>
+                                <span class="text-sm">مقاومة</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl">🔌</span>
+                                <span class="text-sm">Collector</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-4xl">🎛️</span>
+                                <span class="text-sm">ترانزستور NPN</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl">➖</span>
+                                <span class="text-sm">Emitter</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-1 h-12 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl">🔘</span>
+                                <span class="text-sm">Base</span>
+                            </div>
+                            <div class="w-1 h-12 bg-stone-400 rounded-full"></div>
+                            <button id="transistorToggleButton" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">اضغط لتشغيل الترانزستور</button>
+                        </div>
+                        <p id="transistorStatus" class="text-lg text-stone-600">اللمبة مطفية</p>
+                    </div>
+                    <p class="mt-4 text-lg">الترانزستور الـ PNP: ده بقى عكس الـ NPN في طريقة شغله. تخيلوا إنه باب مفتوح على طول. لما تيجي إشارة كهربا صغيرة (سالبة أو أرضي) على البوابة بتاعته (الـ Base)، الباب ده بيقفل ويمنع الكهربا إنها تعدي. استخدامه بيكون مختلف شوية عن الـ NPN، وغالباً بنستخدمه عشان نتحكم في مرور الكهربا من ناحية الطرف الموجب.</p>
+                </div>
+
+                <div id="logic-gates-content" class="hero-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">2. بوابات المنطق (Logic Gates): مخ الكمبيوتر الصغير!</h3>
+                    <p class="mb-4 text-lg">دي بقى زي الخلايا اللي بتفكر جوه الكمبيوتر والموبايل. كل بوابة بتاخد إشارة أو أكتر (بنسميها "مدخلات" - Inputs)، وبتطلع إشارة واحدة بس (بنسميها "مخرج" - Output) بناءً على قواعد منطقية معينة. الإشارات دي بتكون يا إما "نور" (1 أو High) يعني فيه كهربا، أو "ضلمة" (0 أو Low) يعني مفيش كهربا.</p>
+
+                    <div class="flex flex-wrap justify-center gap-4 mb-6">
+                        <button class="logic-gate-tab active bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition duration-300" data-gate="not">بوابة NOT</button>
+                        <button class="logic-gate-tab bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-gate="and">بوابة AND</button>
+                        <button class="logic-gate-tab bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-gate="or">بوابة OR</button>
+                    </div>
+
+                    <div id="not-gate-panel" class="logic-gate-panel bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                        <h4 class="text-xl font-medium text-blue-600 mb-3">بوابة الـ NOT (العاكس):</h4>
+                        <p class="mb-4 text-lg">دي بوابة "العكس" أو "النفي". لو دخلتلها "نور" (1)، تطلعلك "ضلمة" (0). ولو دخلتلها "ضلمة" (0)، تطلعلك "نور" (1). ببساطة بتعكس اللي داخلها.</p>
+                        <div class="flex flex-col items-center mb-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <span class="text-lg font-bold">المدخل (A):</span>
+                                <button id="notInputA" class="input-toggle bg-gray-300 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-400 transition duration-300" data-value="0">0 (ضلمة)</button>
+                            </div>
+                            <div class="text-6xl my-4 opacity-30 transition-opacity duration-300" id="notOutputLed">💡</div>
+                            <span class="text-lg font-bold">المخرج: <span id="notOutputValue">0 (ضلمة)</span></span>
+                        </div>
+                        <h5 class="text-lg font-medium text-stone-600 mb-2">جدول الحقيقة (Truth Table):</h5>
+                        <table class="w-full text-center border-collapse border border-stone-300">
+                            <thead>
+                                <tr class="bg-stone-200">
+                                    <th class="border border-stone-300 p-2">المدخل (A)</th>
+                                    <th class="border border-stone-300 p-2">المخرج (NOT A)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="notTruthTableBody">
+                                <tr data-input="0" class="not-row">
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                </tr>
+                                <tr data-input="1" class="not-row">
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="and-gate-panel" class="logic-gate-panel bg-white p-6 rounded-lg shadow-md border border-stone-200 hidden">
+                        <h4 class="text-xl font-medium text-blue-600 mb-3">بوابة الـ AND (و):</h4>
+                        <p class="mb-4 text-lg">دي بوابة "و". عشان تطلع "نور" (1)، لازم تكون كل المدخلات اللي داخلالها "نور" (1). لو مدخل واحد بس "ضلمة" (0)، هتطلع "ضلمة" (0).</p>
+                        <div class="flex flex-col items-center mb-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <span class="text-lg font-bold">المدخل (A):</span>
+                                <button id="andInputA" class="input-toggle bg-gray-300 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-400 transition duration-300" data-value="0">0 (ضلمة)</button>
+                                <span class="text-lg font-bold">المدخل (B):</span>
+                                <button id="andInputB" class="input-toggle bg-gray-300 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-400 transition duration-300" data-value="0">0 (ضلمة)</button>
+                            </div>
+                            <div class="text-6xl my-4 opacity-30 transition-opacity duration-300" id="andOutputLed">💡</div>
+                            <span class="text-lg font-bold">المخرج: <span id="andOutputValue">0 (ضلمة)</span></span>
+                        </div>
+                        <h5 class="text-lg font-medium text-stone-600 mb-2">جدول الحقيقة (Truth Table):</h5>
+                        <table class="w-full text-center border-collapse border border-stone-300">
+                            <thead>
+                                <tr class="bg-stone-200">
+                                    <th class="border border-stone-300 p-2">المدخل (A)</th>
+                                    <th class="border border-stone-300 p-2">المدخل (B)</th>
+                                    <th class="border border-stone-300 p-2">المخرج (A AND B)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="andTruthTableBody">
+                                <tr data-input-a="0" data-input-b="0" class="and-row">
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                </tr>
+                                <tr data-input-a="0" data-input-b="1" class="and-row">
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                </tr>
+                                <tr data-input-a="1" data-input-b="0" class="and-row">
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                </tr>
+                                <tr data-input-a="1" data-input-b="1" class="and-row">
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="or-gate-panel" class="logic-gate-panel bg-white p-6 rounded-lg shadow-md border border-stone-200 hidden">
+                        <h4 class="text-xl font-medium text-blue-600 mb-3">بوابة الـ OR (أو):</h4>
+                        <p class="mb-4 text-lg">دي بوابة "أو". عشان تطلع "نور" (1)، يكفي إن مدخل واحد بس من اللي داخلالها يكون "نور" (1). مش لازم كلهم.</p>
+                        <div class="flex flex-col items-center mb-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <span class="text-lg font-bold">المدخل (A):</span>
+                                <button id="orInputA" class="input-toggle bg-gray-300 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-400 transition duration-300" data-value="0">0 (ضلمة)</button>
+                                <span class="text-lg font-bold">المدخل (B):</span>
+                                <button id="orInputB" class="input-toggle bg-gray-300 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-400 transition duration-300" data-value="0">0 (ضلمة)</button>
+                            </div>
+                            <div class="text-6xl my-4 opacity-30 transition-opacity duration-300" id="orOutputLed">💡</div>
+                            <span class="text-lg font-bold">المخرج: <span id="orOutputValue">0 (ضلمة)</span></span>
+                        </div>
+                        <h5 class="text-lg font-medium text-stone-600 mb-2">جدول الحقيقة (Truth Table):</h5>
+                        <table class="w-full text-center border-collapse border border-stone-300">
+                            <thead>
+                                <tr class="bg-stone-200">
+                                    <th class="border border-stone-300 p-2">المدخل (A)</th>
+                                    <th class="border border-stone-300 p-2">المدخل (B)</th>
+                                    <th class="border border-stone-300 p-2">المخرج (A OR B)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orTruthTableBody">
+                                <tr data-input-a="0" data-input-b="0" class="or-row">
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                </tr>
+                                <tr data-input-a="0" data-input-b="1" class="or-row">
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                </tr>
+                                <tr data-input-a="1" data-input-b="0" class="or-row">
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">0</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                </tr>
+                                <tr data-input-a="1" data-input-b="1" class="or-row">
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                    <td class="border border-stone-300 p-2">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="ldr-content" class="hero-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">3. المقاومة الحساسة للضوء (LDR - Light Dependent Resistor): عين الإلكترونيات!</h3>
+                    <p class="mb-4 text-lg">دي مقاومة سحرية، قيمتها بتتغير حسب كمية النور اللي واقع عليها. تخيلوا إنها زي عين بتحس بالنور. لما يكون فيه نور كتير، قيمتها بتقل جداً وتعدي كهربا أكتر. لو ضلمة، قيمتها بتزيد جداً وتعدي كهربا أقل.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">تجربة بسيطة (إضاءة ليلية تلقائية - لمبة الشارع الذكية):</h5>
+                    <p class="mb-4 text-base">في التجربة دي، هنشوف إزاي الـ LDR ممكن يشغل لمبة لوحده لما الدنيا تضلم.</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl">🔋</span>
+                                <span class="text-sm">بطارية</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-4xl">🔆</span>
+                                <span class="text-sm">LDR</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-4xl">🎛️</span>
+                                <span class="text-sm">ترانزستور</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl opacity-30 transition-opacity duration-300" id="ldrLed">💡</span>
+                                <span class="text-sm">لمبة LED</span>
+                            </div>
+                        </div>
+                        <div class="w-full max-w-md mt-6">
+                            <label for="lightLevel" class="block text-center text-lg font-bold mb-2">مستوى الإضاءة:</label>
+                            <input type="range" id="lightLevel" min="0" max="100" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-sm text-gray-600 mt-2">
+                                <span>ضلمة (0%)</span>
+                                <span>نور (100%)</span>
+                            </div>
+                        </div>
+                        <p id="ldrStatus" class="text-lg text-stone-600 mt-4">اللمبة مطفية</p>
+                    </div>
+                </div>
+
+                <div id="timer555-content" class="hero-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">4. مؤقت الـ 555 (Timer 555 IC): ساعة الإلكترونيات الذكية!</h3>
+                    <p class="mb-4 text-lg">الـ 555 ده شريحة ذكية جداً ومشهورة، وظيفتها الأساسية إنها تعمل "توقيت" دقيق. يعني ممكن تخلي حاجة تنور وتطفي بشكل متكرر (زي لمبة الفلاشر في العربية)، أو تخلي حاجة تفضل شغالة لمدة معينة وبعدين تطفي.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">تجربة بسيطة (لمبة فلاشر - Astable Multivibrator):</h5>
+                    <p class="mb-4 text-base">في التجربة دي، هنشوف إزاي الـ 555 بيخلي لمبة LED تنور وتطفي لوحدها باستمرار.</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl">🔋</span>
+                                <span class="text-sm">بطارية</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-4xl">⏱️</span>
+                                <span class="text-sm">555 Timer IC</span>
+                            </div>
+                            <div class="w-12 h-1 bg-stone-400 rounded-full"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-2xl opacity-30 transition-opacity duration-300" id="timerLed">💡</span>
+                                <span class="text-sm">لمبة LED</span>
+                            </div>
+                        </div>
+                        <button id="timerToggleButton" class="bg-green-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-700 transition duration-300 mb-4">تشغيل الفلاشر</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="arduino" class="section-content bg-white p-8 rounded-lg shadow-xl mb-8 hidden">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-300 pb-2">عالم الأردوينو: العقل المدبر لمشاريعك!</h2>
+                <p class="mb-4 text-lg">الأردوينو ده زي المخ اللي بنبرمجه عشان يتحكم في المكونات الإلكترونية ويعمل مشاريع ذكية. هو سهل جداً في التعامل وممتع في البرمجة!</p>
+
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="sub-tab-button active bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition duration-300" data-sub="what-is-arduino">إيه هو الأردوينو؟</button>
+                    <button class="sub-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-sub="arduino-getting-started">البداية مع الأردوينو</button>
+                    <button class="sub-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-sub="arduino-sensors">الحساسات (Sensors)</button>
+                    <button class="sub-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-sub="arduino-motors">المواتير (Motors)</button>
+                    <button class="sub-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-sub="arduino-displays">الشاشات (Displays)</button>
+                    <button class="sub-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-sub="arduino-easy-projects">مشاريع سهلة</button>
+                    <button class="sub-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-sub="arduino-medium-projects">مشاريع متوسطة</button>
+                    <button class="sub-tab-button bg-white-glow text-stone-700 px-6 py-3 rounded-full shadow-md hover:bg-stone-100 transition duration-300" data-sub="arduino-hard-projects">مشاريع صعبة</button>
+                </div>
+
+                <div id="what-is-arduino-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">إيه هو الأردوينو؟</h3>
+                    <p class="mb-4 text-lg">الأردوينو هو لوحة إلكترونية صغيرة اسمها "مايكروكنترولر" (Microcontroller). تخيل إنها زي كمبيوتر صغنن جداً، بنوصل بيه مكونات إلكترونية تانية (زي اللمبات والحساسات والمواتير)، وبنكتبله "برنامج" (كود) عشان نقوله يعمل إيه بالظبط. هو سهل جداً للمبتدئين عشان كدة هو مشهور في المشاريع التعليمية والمشاريع اللي بتعمل حاجات في العالم الحقيقي.</p>
+                    <p class="mb-4 text-lg">شكله بيكون عامل زي اللوحة دي:</p>
+                    <div class="flex justify-center mb-6">
+                        <span class="text-8xl">🤖</span>
+                    </div>
+                </div>
+
+                <div id="arduino-getting-started-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">البداية مع الأردوينو: أول لمبة تنور!</h3>
+                    <p class="mb-4 text-lg">أول مشروع بنعمله مع الأردوينو هو إننا نخلي لمبة LED تنور وتطفي (تفلاشر). ده بيعرفنا إزاي نبرمج الأردوينو وإزاي نتحكم في المكونات.</p>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">تجربة: لمبة بتفلاشر!</h4>
+                    <p class="mb-4 text-base">هنخلي الأردوينو يشغل لمبة LED لمدة ثانية ويطفيها لمدة ثانية، ويكرر الموضوع ده.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود (برنامج الأردوينو):</h5>
+                    <pre><code>
+void setup() {
+  // بنعرف الأردوينو إن الرجل رقم 13 هتطلع كهربا (OUTPUT)
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  // بنشغل اللمبة اللي على الرجل رقم 13 (HIGH)
+  digitalWrite(13, HIGH);
+  // بنستنى ثانية (1000 مللي ثانية)
+  delay(1000);
+  // بنطفي اللمبة (LOW)
+  digitalWrite(13, LOW);
+  // بنستنى ثانية كمان
+  delay(1000);
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">في الكود ده: `setup()` بتشتغل مرة واحدة في الأول، و`loop()` بتفضل تتكرر على طول.</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <span class="text-8xl opacity-30 transition-opacity duration-300" id="arduinoBlinkLed">💡</span>
+                        <p class="text-lg text-stone-600 mt-4" id="arduinoBlinkStatus">اللمبة مطفية</p>
+                        <button id="startArduinoBlink" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 mt-4">ابدأ فلاشر الأردوينو</button>
+                    </div>
+                </div>
+
+                <div id="arduino-sensors-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">الحساسات (Sensors): الأردوينو بيحس بالعالم!</h3>
+                    <p class="mb-4 text-lg">الحساسات دي زي عيون الأردوينو وودانه. بتخليه يحس بالحرارة، بالضوء، بالمسافة، وأي حاجة حواليه. وبياخد المعلومات دي عشان يعمل قرار.</p>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">1. حساس الضوء (LDR) مع الأردوينو:</h4>
+                    <p class="mb-4 text-lg">ده هو نفس الـ LDR اللي اتكلمنا عنه قبل كدة، بس المرة دي هنوصله بالأردوينو عشان يتحكم في لمبة بشكل أذكى.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود:</h5>
+                    <pre><code>
+int ldrPin = A0; // بنوصل LDR على رجل أنالوج رقم A0
+int ledPin = 13; // اللمبة على رجل رقم 13
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600); // عشان نشوف قرايات الحساس على الكمبيوتر
+}
+
+void loop() {
+  int lightValue = analogRead(ldrPin); // بنقرأ قيمة الضوء
+  Serial.print("قيمة الضوء: ");
+  Serial.println(lightValue);
+
+  if (lightValue < 400) { // لو الضوء قليل (ظلمة)
+    digitalWrite(ledPin, HIGH); // اللمبة تنور
+  } else {
+    digitalWrite(ledPin, LOW); // اللمبة تطفي
+  }
+  delay(100); // بنستنى شوية
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">تقدر تجرب تتحكم في اللمبة عن طريق تغيير مستوى الإضاءة هنا:</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200">
+                        <div class="w-full max-w-md mt-6">
+                            <label for="ldrArduinoLightLevel" class="block text-center text-lg font-bold mb-2">مستوى الإضاءة:</label>
+                            <input type="range" id="ldrArduinoLightLevel" min="0" max="1023" value="500" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-sm text-gray-600 mt-2">
+                                <span>ضلمة (0)</span>
+                                <span>نور ساطع (1023)</span>
+                            </div>
+                        </div>
+                        <div class="text-2xl mt-4">قيمة الحساس: <span id="ldrArduinoValue">500</span></div>
+                        <div class="text-6xl mt-6 opacity-30 transition-opacity duration-300" id="ldrArduinoLed">💡</div>
+                        <p id="ldrArduinoStatus" class="text-lg text-stone-600 mt-4">اللمبة مطفية</p>
+                    </div>
+
+                    <h4 class="text-xl font-medium text-blue-600 mb-3 mt-8">2. حساس الحرارة (Temperature Sensor - LM35):</h4>
+                    <p class="mb-4 text-lg">الحساس ده بيقيس درجة الحرارة وبيبعت قراية للأردوينو عشان يعرف الجو حر ولا برد.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود:</h5>
+                    <pre><code>
+int tempPin = A1; // حساس الحرارة على رجل أنالوج رقم A1
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int reading = analogRead(tempPin);
+  // بنحول القراية لدرجة حرارة مئوية
+  float voltage = reading * (5.0 / 1024.0);
+  float temperatureC = voltage * 100;
+
+  Serial.print("درجة الحرارة: ");
+  Serial.print(temperatureC);
+  Serial.println(" درجة مئوية");
+  delay(1000);
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">جرب تغير درجة الحرارة وشوف القراية:</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <div class="w-full max-w-md mt-6">
+                            <label for="tempSensorSlider" class="block text-center text-lg font-bold mb-2">ضبط الحرارة:</label>
+                            <input type="range" id="tempSensorSlider" min="0" max="100" value="25" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-sm text-gray-600 mt-2">
+                                <span>برد (0°C)</span>
+                                <span>حر (100°C)</span>
+                            </div>
+                        </div>
+                        <div class="text-2xl mt-4">درجة الحرارة: <span id="tempSensorValue">25.00</span> °C</div>
+                    </div>
+                </div>
+
+                <div id="arduino-motors-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">المواتير (Motors): الأردوينو بيحرك الأشياء!</h3>
+                    <p class="mb-4 text-lg">المواتير دي هي اللي بتخلي مشاريعنا تتحرك! في أنواع كتير، هنركز على نوعين أساسيين: مواتير DC ومواتير السيرفو.</p>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">1. موتور DC (موتور التيار المستمر):</h4>
+                    <p class="mb-4 text-lg">ده موتور بسيط بيتحرك في اتجاه واحد لما نوصله بكهربا، وفي الاتجاه التاني لو عكسنا أقطاب الكهربا. بنستخدم معاه حاجة اسمها "درايفر موتور" عشان الأردوينو مش بيطلع كهربا كافية لتشغيل المواتير الكبيرة.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود (للتحكم في اتجاه الموتور):</h5>
+                    <pre><code>
+int motorPin1 = 2; // رجل لتحديد الاتجاه الأول
+int motorPin2 = 3; // رجل لتحديد الاتجاه الثاني
+
+void setup() {
+  pinMode(motorPin1, OUTPUT);
+  pinMode(motorPin2, OUTPUT);
+}
+
+void loop() {
+  // شغل الموتور في اتجاه واحد
+  digitalWrite(motorPin1, HIGH);
+  digitalWrite(motorPin2, LOW);
+  delay(3000); // 3 ثواني
+
+  // وقف الموتور
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, LOW);
+  delay(1000); // ثانية
+
+  // شغل الموتور في الاتجاه المعاكس
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, HIGH);
+  delay(3000); // 3 ثواني
+
+  // وقف الموتور تاني
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, LOW);
+  delay(1000); // ثانية
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">جرب تشغل الموتور في اتجاهات مختلفة:</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <span class="text-6xl mb-4" id="dcMotorIcon">⚙️</span>
+                        <div class="flex gap-4">
+                            <button id="dcMotorForward" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">اتجاه للأمام ➡️</button>
+                            <button id="dcMotorStop" class="bg-gray-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-gray-600 transition duration-300">إيقاف ⏹️</button>
+                            <button id="dcMotorBackward" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">اتجاه للخلف ⬅️</button>
+                        </div>
+                        <p id="dcMotorStatus" class="text-lg text-stone-600 mt-4">الموتور متوقف</p>
+                    </div>
+
+                    <h4 class="text-xl font-medium text-blue-600 mb-3 mt-8">2. موتور السيرفو (Servo Motor):</h4>
+                    <p class="mb-4 text-lg">موتور السيرفو ده مميز جداً لأنه بيتحرك لزاوية معينة بالضبط وبنقدر نتحكم في الزاوية دي. مفيد جداً في الروبوتات والأذرع المتحركة.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود (للتحكم في زاوية السيرفو):</h5>
+                    <pre><code>
+#include &lt;Servo.h&gt; // لازم نضيف المكتبة دي
+
+Servo myServo; // بنعرف موتور سيرفو
+
+void setup() {
+  myServo.attach(9); // بنوصل السيرفو على رجل رقم 9
+}
+
+void loop() {
+  myServo.write(0); // السيرفو يروح لزاوية 0 درجة
+  delay(1000);
+  myServo.write(90); // السيرفو يروح لزاوية 90 درجة
+  delay(1000);
+  myServo.write(180); // السيرفو يروح لزاوية 180 درجة
+  delay(1000);
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">جرب تحرك موتور السيرفو لزوايا مختلفة:</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <span class="text-6xl mb-4" id="servoMotorIcon">➡️</span>
+                        <input type="range" id="servoAngleSlider" min="0" max="180" value="90" class="w-full max-w-md h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-sm text-gray-600 mt-2 w-full max-w-md">
+                            <span>0°</span>
+                            <span>90°</span>
+                            <span>180°</span>
+                        </div>
+                        <p id="servoAngleStatus" class="text-lg text-stone-600 mt-4">الزاوية: 90°</p>
+                    </div>
+                </div>
+
+                <div id="arduino-displays-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">الشاشات (Displays): الأردوينو بيكلمنا!</h3>
+                    <p class="mb-4 text-lg">الشاشات دي بتخلي الأردوينو يعرض لينا كلام أو أرقام، زي شاشة موبايل صغيرة. أشهر نوع بنستخدمه هو شاشة الـ LCD (Liquid Crystal Display).</p>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">شاشة الـ LCD (16x2):</h4>
+                    <p class="mb-4 text-lg">دي شاشة بتعرض 16 حرف في كل سطر، وليها سطرين. بنستخدمها عشان نعرض قرايات الحساسات، أو رسائل معينة.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود (لعرض نص على الشاشة):</h5>
+                    <pre><code>
+#include &lt;LiquidCrystal.h&gt; // لازم نضيف المكتبة دي
+
+// بنعرف الأطراف اللي الشاشة متوصلة بيها
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  lcd.begin(16, 2); // بنقول للأردوينو إن الشاشة 16 حرف في سطرين
+  lcd.print("مرحبا يا بطل!"); // بنكتب رسالة على الشاشة
+}
+
+void loop() {
+  // ممكن نخلي الشاشة تعرض قرايات حساسة هنا
+  // مثال بسيط: نغير السطر التاني بعد 5 ثواني
+  delay(5000);
+  lcd.setCursor(0, 1); // بنروح لأول حرف في السطر التاني
+  lcd.print("الاردوينو رائع!");
+  delay(5000);
+  lcd.setCursor(0, 1); // بنرجع نكتب مسافات عشان نمسح
+  lcd.print("                ");
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">جرب تكتب أي حاجة تشوفها على الشاشة الافتراضية:</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <div class="bg-gray-800 text-green-400 p-4 rounded-lg w-full max-w-sm font-mono text-center mb-4 border border-gray-700 shadow-inner">
+                            <div id="lcdLine1" class="h-6 text-xl overflow-hidden whitespace-pre">مرحبا يا بطل!</div>
+                            <div id="lcdLine2" class="h-6 text-xl overflow-hidden whitespace-pre"></div>
+                        </div>
+                        <input type="text" id="lcdInput" placeholder="اكتب هنا" class="p-2 border border-gray-300 rounded-md w-full max-w-sm mb-4 text-gray-800">
+                        <button id="lcdDisplayButton" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">اعرض على الشاشة</button>
+                    </div>
+                </div>
+
+                <div id="arduino-easy-projects-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">مشاريع الأردوينو: سهلة جداً!</h3>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">1. إشارة المرور الذكية:</h4>
+                    <p class="mb-4 text-lg">هنعمل إشارة مرور حقيقية بثلاث لمبات (أحمر، أصفر، أخضر) والأردوينو هيتحكم فيهم عشان يشتغلوا بالترتيب الصحيح.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود:</h5>
+                    <pre><code>
+int redLed = 13;
+int yellowLed = 12;
+int greenLed = 11;
+
+void setup() {
+  pinMode(redLed, OUTPUT);
+  pinMode(yellowLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(greenLed, HIGH); // أخضر ينور
+  delay(5000); // 5 ثواني
+  digitalWrite(greenLed, LOW);
+
+  digitalWrite(yellowLed, HIGH); // أصفر ينور
+  delay(2000); // 2 ثانية
+  digitalWrite(yellowLed, LOW);
+
+  digitalWrite(redLed, HIGH); // أحمر ينور
+  delay(5000); // 5 ثواني
+  digitalWrite(redLed, LOW);
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">شاهد إشارة المرور تعمل هنا:</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <div class="flex flex-col items-center bg-gray-800 p-4 rounded-lg">
+                            <div id="trafficLedRed" class="w-12 h-12 rounded-full bg-gray-600 mb-2 border border-gray-700 transition-colors duration-500"></div>
+                            <div id="trafficLedYellow" class="w-12 h-12 rounded-full bg-gray-600 mb-2 border border-gray-700 transition-colors duration-500"></div>
+                            <div id="trafficLedGreen" class="w-12 h-12 rounded-full bg-gray-600 border border-gray-700 transition-colors duration-500"></div>
+                        </div>
+                        <button id="trafficLightToggle" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 mt-4">تشغيل إشارة المرور</button>
+                    </div>
+                </div>
+
+                <div id="arduino-medium-projects-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">مشاريع الأردوينو: متوسطة!</h3>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">1. مصباح ذكي مع حساس الضوء:</h4>
+                    <p class="mb-4 text-lg">هذا المشروع يجمع بين حساس الضوء (LDR) والأردوينو والمبة LED لإنشاء مصباح يضيء تلقائياً عند حلول الظلام، ويطفئ عند وجود إضاءة كافية.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود:</h5>
+                    <pre><code>
+int ldrPin = A0; // حساس الضوء
+int ledPin = 9;  // اللمبة
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int lightValue = analogRead(ldrPin);
+  Serial.print("Light: ");
+  Serial.println(lightValue);
+
+  if (lightValue < 400) { // لو الضوء قليل (ضلمة)
+    digitalWrite(ledPin, HIGH); // شغل اللمبة
+  } else {
+    digitalWrite(ledPin, LOW); // اطفي اللمبة
+  }
+  delay(100);
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">جرب تتحكم في المصباح الذكي هنا (نفس فكرة LDR لكن مع توضيح أنها ضمن مشاريع الأردوينو):</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <div class="w-full max-w-md mt-6">
+                            <label for="smartLampLightLevel" class="block text-center text-lg font-bold mb-2">مستوى الإضاءة:</label>
+                            <input type="range" id="smartLampLightLevel" min="0" max="1023" value="500" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-sm text-gray-600 mt-2">
+                                <span>ضلمة (0)</span>
+                                <span>نور ساطع (1023)</span>
+                            </div>
+                        </div>
+                        <div class="text-6xl mt-6 opacity-30 transition-opacity duration-300" id="smartLampLed">💡</div>
+                        <p id="smartLampStatus" class="text-lg text-stone-600 mt-4">المصباح مطفية</p>
+                    </div>
+                </div>
+
+                <div id="arduino-hard-projects-content" class="arduino-sub-content bg-stone-100 p-6 rounded-lg shadow-inner hidden">
+                    <h3 class="text-2xl font-semibold text-stone-700 mb-4">مشاريع الأردوينو: صعبة شوية!</h3>
+                    <h4 class="text-xl font-medium text-blue-600 mb-3">1. روبوت يتجنب العوائق (Simplified):</h4>
+                    <p class="mb-4 text-lg">هذا المشروع يوضح كيف يمكن للأردوينو التحكم في روبوت صغير يتجنب العوائق باستخدام حساس مسافة (مثل حساس الألتراسونيك). عندما يكتشف الروبوت عائقًا أمامه، فإنه يتوقف ويدور لتجنبه.</p>
+                    <h5 class="text-lg font-medium text-stone-600 mb-2">الكود (فكرة عامة):</h5>
+                    <pre><code>
+// الكود الفعلي سيكون أطول بكثير ويشمل مكتبات للحساسات والمواتير
+// هذه فكرة مبسطة لما يفعله الأردوينو
+
+// تعريف الأطراف
+int echoPin = 7; // حساس المسافة: استقبال
+int trigPin = 8; // حساس المسافة: إرسال
+int motorLeft1 = 2; // موتور شمال اتجاه 1
+int motorLeft2 = 3; // موتور شمال اتجاه 2
+int motorRight1 = 4; // موتور يمين اتجاه 1
+int motorRight2 = 5; // موتور يمين اتجاه 2
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(motorLeft1, OUTPUT);
+  pinMode(motorLeft2, OUTPUT);
+  pinMode(motorRight1, OUTPUT);
+  pinMode(motorRight2, OUTPUT);
+  Serial.begin(9600);
+}
+
+void moveForward() {
+  // الكود لتشغيل المواتير للأمام
+}
+
+void stopMotors() {
+  // الكود لإيقاف المواتير
+}
+
+void turnAround() {
+  // الكود للدوران لتجنب العائق
+}
+
+long getDistance() {
+  // الكود لقراءة المسافة من حساس الألتراسونيك
+  return 0; // قيمة افتراضية
+}
+
+void loop() {
+  long distance = getDistance();
+  Serial.print("المسافة: ");
+  Serial.println(distance);
+
+  if (distance > 20 || distance == 0) { // لو مفيش عائق قريب
+    moveForward(); // الروبوت يتحرك للأمام
+  } else { // لو فيه عائق قريب (أقل من 20 سم)
+    stopMotors(); // الروبوت يتوقف
+    delay(500);
+    turnAround(); // الروبوت يدور
+    delay(1000);
+    stopMotors(); // يتوقف بعد الدوران
+    delay(500);
+  }
+}
+                    </code></pre>
+                    <p class="mt-4 mb-4 text-lg">جرب تتحكم في الروبوت وتجنب العوائق هنا:</p>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md border border-stone-200 mt-6">
+                        <span class="text-6xl mb-4" id="robotIcon">🤖</span>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="text-lg font-bold">عائق:</span>
+                            <button id="obstacleToggle" class="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300" data-has-obstacle="0">لا يوجد 🚧</button>
+                        </div>
+                        <p id="robotStatus" class="text-xl text-blue-700 font-bold">الروبوت يتحرك للأمام ⬆️</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="safety" class="section-content bg-white p-8 rounded-lg shadow-xl mb-8 hidden">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-300 pb-2">نصائح مهمة جداً عشان تبقوا محترفين</h2>
+                <p class="mb-4 text-lg">عشان تستمتعوا بالإلكترونيات وتكونوا في أمان، لازم تتبعوا النصائح دي كويس جداً:</p>
+                <ul class="list-disc list-inside text-lg ml-4">
+                    <li class="mb-2"><strong class="text-red-600">الأمان أولاً وقبل أي حاجة:</strong> الكهربا ممكن تكون خطيرة لو مش بنستخدمها صح. دايماً اشتغلوا ببطاريات صغيرة (زي 9 فولت أو أقل) عشان تكون آمنة. متوصلوش أي حاجة بكهربا البيت العادية إلا تحت إشراف حد كبير وخبير.</li>
+                    <li class="mb-2"><strong class="text-blue-600">اسألوا ومتتكسفوش:</strong> لو مش فاهمين حاجة، اسألوا بابا أو ماما أو أي حد كبير بيفهم في الإلكترونيات. فيه كمان فيديوهات كتير على الإنترنت ممكن تساعدكم.</li>
+                    <li class="mb-2"><strong class="text-blue-600">ابدأوا بالبسيط واتدرجوا:</strong> متتخضوش من الدوائر المعقدة. ابدأوا بالدوائر السهلة اللي شرحناها خطوة بخطوة، ولما تفهموها كويس وتشتغل معاكم، تقدروا تنتقلوا للأصعب وتعملوا مشاريع أكبر.</li>
+                    <li class="mb-2"><strong class="text-blue-600">الأدوات الأساسية:</strong> هتحتاجوا "بريد بورد" (Breadboard) ودي لوحة سحرية بتوصلوا عليها المكونات من غير لحام، وأسلاك توصيل بألوان مختلفة، ومقاومات بقيم مختلفة، ولمبات LED بألوان مختلفة، والـ ICs اللي شرحناها (ترانزستور، 555 Timer). ممكن تلاقوها في محلات الإلكترونيات أو تطلبوها أونلاين.</li>
+                    <li class="mb-2"><strong class="text-blue-600">اقرأوا كتير:</strong> كل مكون إلكتروني ليه "داتا شيت" (Datasheet) ودي ورقة فيها كل المعلومات عنه. لما تكبروا شوية هتبقوا تفهموها كويس.</li>
+                    <li class="mb-2"><strong class="text-blue-600">جربوا وغيروا:</strong> متخافوش تجربوا وتغيروا في قيم المقاومات والمكثفات في الدوائر اللي بتعملوها. ده هيخليكم تفهموا أكتر إيه اللي بيحصل وإزاي المكونات بتأثر على بعضها.</li>
+                </ul>
+                <p class="mt-6 text-lg">الإلكترونيات عالم ممتع جداً ومليان اختراعات. كل ما هتجربوا وتعملوا حاجات بإيديكم، كل ما هتفهموا أكتر وتستمتعوا أكتر. مين عارف، ممكن واحد فيكم يطلع مهندس إلكترونيات شاطر جداً ويخترع حاجة تغير العالم!</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const navButtons = document.querySelectorAll('.nav-button');
+        const sectionContents = document.querySelectorAll('.section-content');
+        const heroTabButtons = document.querySelectorAll('.hero-tab-button');
+        const heroContents = document.querySelectorAll('.hero-content');
+        const logicGateTabs = document.querySelectorAll('.logic-gate-tab');
+        const logicGatePanels = document.querySelectorAll('.logic-gate-panel');
+        const subTabButtons = document.querySelectorAll('.sub-tab-button');
+        const arduinoSubContents = document.querySelectorAll('.arduino-sub-content');
+
+        function setActiveButton(buttons, activeClass, currentData) {
+            buttons.forEach(button => {
+                button.classList.remove(activeClass.split(' ').filter(c => c.startsWith('bg-') || c.startsWith('text-')));
+                button.classList.add('bg-white-glow', 'text-stone-700');
+            });
+            const activeButton = document.querySelector(`[data-${currentData}="${currentData}"]`);
+            if (activeButton) {
+                 activeButton.classList.remove('bg-white-glow', 'text-stone-700');
+                 activeButton.classList.add(activeClass);
+            }
+        }
+
+        function showSection(sectionId) {
+            sectionContents.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+
+            navButtons.forEach(button => {
+                button.classList.remove('active', 'bg-blue-600', 'text-white');
+                button.classList.add('bg-white-glow', 'text-stone-700');
+            });
+            const activeButton = document.querySelector(`.nav-button[data-section="${sectionId}"]`);
+            if (activeButton) {
+                activeButton.classList.remove('bg-white-glow', 'text-stone-700');
+                activeButton.classList.add('active', 'bg-blue-600', 'text-white');
+            }
+
+            if (sectionId === 'heroes') {
+                showHeroContent('transistor');
+            } else if (sectionId === 'arduino') {
+                showArduinoSubContent('what-is-arduino');
+            }
+        }
+
+        function showHeroContent(heroId) {
+            heroContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`${heroId}-content`).classList.remove('hidden');
+
+            heroTabButtons.forEach(button => {
+                button.classList.remove('active', 'bg-blue-600', 'text-white');
+                button.classList.add('bg-white-glow', 'text-stone-700');
+            });
+            const activeHeroButton = document.querySelector(`.hero-tab-button[data-hero="${heroId}"]`);
+            if (activeHeroButton) {
+                activeHeroButton.classList.remove('bg-white-glow', 'text-stone-700');
+                activeHeroButton.classList.add('active', 'bg-blue-600', 'text-white');
+            }
+
+            if (heroId === 'logic-gates') {
+                showLogicGatePanel('not');
+            }
+        }
+
+        function showLogicGatePanel(gateType) {
+            logicGatePanels.forEach(panel => {
+                panel.classList.add('hidden');
+            });
+            document.getElementById(`${gateType}-gate-panel`).classList.remove('hidden');
+
+            logicGateTabs.forEach(tab => {
+                tab.classList.remove('active', 'bg-blue-600', 'text-white');
+                tab.classList.add('bg-white-glow', 'text-stone-700');
+            });
+            const activeGateTab = document.querySelector(`.logic-gate-tab[data-gate="${gateType}"]`);
+            if (activeGateTab) {
+                activeGateTab.classList.remove('bg-white-glow', 'text-stone-700');
+                activeGateTab.classList.add('active', 'bg-blue-600', 'text-white');
+            }
+
+            document.querySelectorAll(`#${gateType}-gate-panel .input-toggle`).forEach(button => {
+                button.dataset.value = '0';
+                button.textContent = '0 (ضلمة)';
+                button.classList.remove('bg-green-500');
+                button.classList.add('bg-gray-300');
+            });
+            updateLogicGateOutput(gateType);
+        }
+
+        function showArduinoSubContent(subId) {
+            arduinoSubContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`${subId}-content`).classList.remove('hidden');
+
+            subTabButtons.forEach(button => {
+                button.classList.remove('active', 'bg-blue-600', 'text-white');
+                button.classList.add('bg-white-glow', 'text-stone-700');
+            });
+            const activeSubButton = document.querySelector(`.sub-tab-button[data-sub="${subId}"]`);
+            if (activeSubButton) {
+                activeSubButton.classList.remove('bg-white-glow', 'text-stone-700');
+                activeSubButton.classList.add('active', 'bg-blue-600', 'text-white');
+            }
+        }
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showSection(button.dataset.section);
+            });
+        });
+
+        heroTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showHeroContent(button.dataset.hero);
+            });
+        });
+
+        logicGateTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                showLogicGatePanel(tab.dataset.gate);
+            });
+        });
+
+        subTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showArduinoSubContent(button.dataset.sub);
+            });
+        });
+
+        // Transistor Logic
+        const transistorToggleButton = document.getElementById('transistorToggleButton');
+        const transistorLed = document.getElementById('transistorLed');
+        const transistorStatus = document.getElementById('transistorStatus');
+        let isTransistorOn = false;
+
+        transistorToggleButton.addEventListener('click', () => {
+            isTransistorOn = !isTransistorOn;
+            if (isTransistorOn) {
+                transistorLed.classList.add('light-on');
+                transistorStatus.textContent = 'اللمبة منورة!';
+                transistorToggleButton.textContent = 'اضغط لإيقاف الترانزستور';
+                transistorToggleButton.classList.remove('bg-blue-600');
+                transistorToggleButton.classList.add('bg-red-600');
+            } else {
+                transistorLed.classList.remove('light-on');
+                transistorStatus.textContent = 'اللمبة مطفية';
+                transistorToggleButton.textContent = 'اضغط لتشغيل الترانزستور';
+                transistorToggleButton.classList.remove('bg-red-600');
+                transistorToggleButton.classList.add('bg-blue-600');
+            }
+        });
+
+        // Logic Gates Logic
+        function updateLogicGateOutput(gateType) {
+            let inputA, inputB, output;
+            let outputLed, outputValueSpan;
+            let truthTableRows;
+
+            if (gateType === 'not') {
+                inputA = parseInt(document.getElementById('notInputA').dataset.value);
+                output = (inputA === 0) ? 1 : 0;
+                outputLed = document.getElementById('notOutputLed');
+                outputValueSpan = document.getElementById('notOutputValue');
+                truthTableRows = document.querySelectorAll('#notTruthTableBody .not-row');
+            } else if (gateType === 'and') {
+                inputA = parseInt(document.getElementById('andInputA').dataset.value);
+                inputB = parseInt(document.getElementById('andInputB').dataset.value);
+                output = (inputA === 1 && inputB === 1) ? 1 : 0;
+                outputLed = document.getElementById('andOutputLed');
+                outputValueSpan = document.getElementById('andOutputValue');
+                truthTableRows = document.querySelectorAll('#andTruthTableBody .and-row');
+            } else if (gateType === 'or') {
+                inputA = parseInt(document.getElementById('orInputA').dataset.value);
+                inputB = parseInt(document.getElementById('orInputB').dataset.value);
+                output = (inputA === 1 || inputB === 1) ? 1 : 0;
+                outputLed = document.getElementById('orOutputLed');
+                outputValueSpan = document.getElementById('orOutputValue');
+                truthTableRows = document.querySelectorAll('#orTruthTableBody .or-row');
+            }
+
+            if (output === 1) {
+                outputLed.classList.add('light-on');
+            } else {
+                outputLed.classList.remove('light-on');
+            }
+            outputValueSpan.textContent = `${output} (${output === 1 ? 'نور' : 'ضلمة'})`;
+
+            truthTableRows.forEach(row => {
+                row.classList.remove('bg-blue-100');
+                if (gateType === 'not') {
+                    if (parseInt(row.dataset.input) === inputA) {
+                        row.classList.add('bg-blue-100');
+                    }
+                } else {
+                    if (parseInt(row.dataset.inputA) === inputA && parseInt(row.dataset.inputB) === inputB) {
+                        row.classList.add('bg-blue-100');
+                    }
+                }
+            });
+        }
+
+        document.querySelectorAll('.logic-gate-panel .input-toggle').forEach(button => {
+            button.addEventListener('click', (event) => {
+                let currentValue = parseInt(event.target.dataset.value);
+                let newValue = (currentValue === 0) ? 1 : 0;
+                event.target.dataset.value = newValue;
+                event.target.textContent = `${newValue} (${newValue === 1 ? 'نور' : 'ضلمة'})`;
+                if (newValue === 1) {
+                    event.target.classList.remove('bg-gray-300');
+                    event.target.classList.add('bg-green-500');
+                } else {
+                    event.target.classList.remove('bg-green-500');
+                    event.target.classList.add('bg-gray-300');
+                }
+                const currentGatePanel = event.target.closest('.logic-gate-panel');
+                const gateType = currentGatePanel.id.split('-')[0];
+                updateLogicGateOutput(gateType);
+            });
+        });
+
+        // LDR Logic
+        const ldrLed = document.getElementById('ldrLed');
+        const ldrStatus = document.getElementById('ldrStatus');
+
+        function updateLdrStatus(lightValue) {
+            if (lightValue < 30) {
+                ldrLed.classList.add('light-on');
+                ldrStatus.textContent = 'اللمبة منورة (ضلمة)!';
+            } else {
+                ldrLed.classList.remove('light-on');
+                ldrStatus.textContent = 'اللمبة مطفية (نور)';
+            }
+        }
+        document.getElementById('lightLevel').addEventListener('input', (event) => {
+            updateLdrStatus(parseInt(event.target.value));
+        });
+        updateLdrStatus(parseInt(document.getElementById('lightLevel').value)); // Initial call
+
+        // 555 Timer Logic
+        const timerToggleButton = document.getElementById('timerToggleButton');
+        const timerLed = document.getElementById('timerLed');
+        let timerInterval;
+        let isTimerRunning = false;
+
+        function startTimer() {
+            if (isTimerRunning) return;
+            isTimerRunning = true;
+            timerToggleButton.textContent = 'إيقاف الفلاشر';
+            timerToggleButton.classList.remove('bg-green-600');
+            timerToggleButton.classList.add('bg-red-600');
+            let isOn = false;
+            timerInterval = setInterval(() => {
+                isOn = !isOn;
+                if (isOn) {
+                    timerLed.classList.add('light-on');
+                } else {
+                    timerLed.classList.remove('light-on');
+                }
+            }, 500);
+        }
+
+        function stopTimer() {
+            if (!isTimerRunning) return;
+            isTimerRunning = false;
+            clearInterval(timerInterval);
+            timerLed.classList.remove('light-on');
+            timerToggleButton.textContent = 'تشغيل الفلاشر';
+            timerToggleButton.classList.remove('bg-red-600');
+            timerToggleButton.classList.add('bg-green-600');
+        }
+
+        timerToggleButton.addEventListener('click', () => {
+            if (isTimerRunning) {
+                stopTimer();
+            } else {
+                startTimer();
+            }
+        });
+
+        // Arduino Blink Logic
+        const arduinoBlinkLed = document.getElementById('arduinoBlinkLed');
+        const arduinoBlinkStatus = document.getElementById('arduinoBlinkStatus');
+        const startArduinoBlinkButton = document.getElementById('startArduinoBlink');
+        let arduinoBlinkInterval;
+        let isArduinoBlinkRunning = false;
+
+        function startArduinoBlink() {
+            if (isArduinoBlinkRunning) return;
+            isArduinoBlinkRunning = true;
+            startArduinoBlinkButton.textContent = 'إيقاف الفلاشر';
+            startArduinoBlinkButton.classList.remove('bg-blue-600');
+            startArduinoBlinkButton.classList.add('bg-red-600');
+            let isOn = false;
+            arduinoBlinkInterval = setInterval(() => {
+                isOn = !isOn;
+                if (isOn) {
+                    arduinoBlinkLed.classList.add('light-on');
+                    arduinoBlinkStatus.textContent = 'اللمبة منورة';
+                } else {
+                    arduinoBlinkLed.classList.remove('light-on');
+                    arduinoBlinkStatus.textContent = 'اللمبة مطفية';
+                }
+            }, 1000);
+        }
+
+        function stopArduinoBlink() {
+            if (!isArduinoBlinkRunning) return;
+            isArduinoBlinkRunning = false;
+            clearInterval(arduinoBlinkInterval);
+            arduinoBlinkLed.classList.remove('light-on');
+            arduinoBlinkStatus.textContent = 'اللمبة مطفية';
+            startArduinoBlinkButton.textContent = 'ابدأ فلاشر الأردوينو';
+            startArduinoBlinkButton.classList.remove('bg-red-600');
+            startArduinoBlinkButton.classList.add('bg-blue-600');
+        }
+
+        startArduinoBlinkButton.addEventListener('click', () => {
+            if (isArduinoBlinkRunning) {
+                stopArduinoBlink();
+            } else {
+                startArduinoBlink();
+            }
+        });
+
+        // LDR Arduino Logic
+        const ldrArduinoLightLevelSlider = document.getElementById('ldrArduinoLightLevel');
+        const ldrArduinoValueSpan = document.getElementById('ldrArduinoValue');
+        const ldrArduinoLed = document.getElementById('ldrArduinoLed');
+        const ldrArduinoStatus = document.getElementById('ldrArduinoStatus');
+
+        function updateLdrArduinoStatus() {
+            const lightValue = parseInt(ldrArduinoLightLevelSlider.value);
+            ldrArduinoValueSpan.textContent = lightValue;
+            if (lightValue < 400) {
+                ldrArduinoLed.classList.add('light-on');
+                ldrArduinoStatus.textContent = 'اللمبة منورة (الضوء قليل)!';
+            } else {
+                ldrArduinoLed.classList.remove('light-on');
+                ldrArduinoStatus.textContent = 'اللمبة مطفية (الضوء كافي)';
+            }
+        }
+        ldrArduinoLightLevelSlider.addEventListener('input', updateLdrArduinoStatus);
+        updateLdrArduinoStatus();
+
+        // Temperature Sensor Logic
+        const tempSensorSlider = document.getElementById('tempSensorSlider');
+        const tempSensorValueSpan = document.getElementById('tempSensorValue');
+
+        function updateTempSensorValue() {
+            const sliderValue = parseInt(tempSensorSlider.value);
+            // Simulate LM35: 10mV per degree C. Arduino reads 0-1023 for 0-5V.
+            // 5V / 1024 steps = ~4.88mV per step.
+            // temp = (reading * (5.0 / 1024.0)) * 100
+            // Simplified for slider: (sliderValue / 100.0) * (some max temp), let's say max 100 for slider
+            const simulatedVoltage = sliderValue / 100.0 * 5.0; // Slider 0-100 to 0-5V
+            const temperatureC = simulatedVoltage * 100;
+            tempSensorValueSpan.textContent = temperatureC.toFixed(2);
+        }
+        tempSensorSlider.addEventListener('input', updateTempSensorValue);
+        updateTempSensorValue();
+
+        // DC Motor Logic
+        const dcMotorIcon = document.getElementById('dcMotorIcon');
+        const dcMotorStatus = document.getElementById('dcMotorStatus');
+        const dcMotorForwardButton = document.getElementById('dcMotorForward');
+        const dcMotorStopButton = document.getElementById('dcMotorStop');
+        const dcMotorBackwardButton = document.getElementById('dcMotorBackward');
+
+        function setDcMotorState(state) {
+            dcMotorIcon.style.animation = 'none';
+            if (state === 'forward') {
+                dcMotorIcon.innerHTML = '⚙️➡️';
+                dcMotorStatus.textContent = 'الموتور يتحرك للأمام';
+                dcMotorIcon.style.animation = 'spin-forward 1s infinite linear';
+            } else if (state === 'backward') {
+                dcMotorIcon.innerHTML = '⚙️⬅️';
+                dcMotorStatus.textContent = 'الموتور يتحرك للخلف';
+                dcMotorIcon.style.animation = 'spin-backward 1s infinite linear';
+            } else {
+                dcMotorIcon.innerHTML = '⚙️';
+                dcMotorStatus.textContent = 'الموتور متوقف';
+            }
+        }
+        dcMotorForwardButton.addEventListener('click', () => setDcMotorState('forward'));
+        dcMotorStopButton.addEventListener('click', () => setDcMotorState('stop'));
+        dcMotorBackwardButton.addEventListener('click', () => setDcMotorState('backward'));
+
+        // Servo Motor Logic
+        const servoAngleSlider = document.getElementById('servoAngleSlider');
+        const servoAngleStatus = document.getElementById('servoAngleStatus');
+        const servoMotorIcon = document.getElementById('servoMotorIcon');
+
+        function updateServoAngle() {
+            const angle = parseInt(servoAngleSlider.value);
+            servoAngleStatus.textContent = `الزاوية: ${angle}°`;
+            // Rotate the emoji
+            servoMotorIcon.style.transform = `rotate(${angle}deg)`;
+        }
+        servoAngleSlider.addEventListener('input', updateServoAngle);
+        updateServoAngle(); // Initial position
+
+        // LCD Display Logic
+        const lcdInput = document.getElementById('lcdInput');
+        const lcdDisplayButton = document.getElementById('lcdDisplayButton');
+        const lcdLine1 = document.getElementById('lcdLine1');
+        const lcdLine2 = document.getElementById('lcdLine2');
+
+        lcdDisplayButton.addEventListener('click', () => {
+            let text = lcdInput.value;
+            if (text.length > 16) {
+                lcdLine1.textContent = text.substring(0, 16);
+                lcdLine2.textContent = text.substring(16, 32);
+            } else {
+                lcdLine1.textContent = text;
+                lcdLine2.textContent = '';
+            }
+            // Pad with spaces if less than 16 to simulate LCD full line
+            lcdLine1.textContent = lcdLine1.textContent.padEnd(16, ' ');
+            lcdLine2.textContent = lcdLine2.textContent.padEnd(16, ' ');
+        });
+
+        // Traffic Light Logic
+        const trafficLightToggle = document.getElementById('trafficLightToggle');
+        const trafficLedRed = document.getElementById('trafficLedRed');
+        const trafficLedYellow = document.getElementById('trafficLedYellow');
+        const trafficLedGreen = document.getElementById('trafficLedGreen');
+        let trafficLightInterval;
+        let isTrafficLightRunning = false;
+        let trafficState = 0; // 0: Green, 1: Yellow, 2: Red
+
+        function updateTrafficLightLeds() {
+            trafficLedRed.classList.remove('bg-red-500', 'light-on');
+            trafficLedYellow.classList.remove('bg-yellow-500', 'light-on');
+            trafficLedGreen.classList.remove('bg-green-500', 'light-on');
+
+            if (trafficState === 0) { // Green
+                trafficLedGreen.classList.add('bg-green-500', 'light-on');
+            } else if (trafficState === 1) { // Yellow
+                trafficLedYellow.classList.add('bg-yellow-500', 'light-on');
+            } else if (trafficState === 2) { // Red
+                trafficLedRed.classList.add('bg-red-500', 'light-on');
+            }
+        }
+
+        function advanceTrafficLight() {
+            if (trafficState === 0) { // Green to Yellow
+                trafficState = 1;
+                setTimeout(() => {
+                    trafficState = 2; // Yellow to Red
+                    updateTrafficLightLeds();
+                }, 2000); // Yellow duration
+            } else if (trafficState === 1) { // Should not happen directly from green to red without yellow
+                trafficState = 2;
+            } else if (trafficState === 2) { // Red to Green
+                trafficState = 0;
+            }
+            updateTrafficLightLeds();
+        }
+
+        function startTrafficLight() {
+            if (isTrafficLightRunning) return;
+            isTrafficLightRunning = true;
+            trafficLightToggle.textContent = 'إيقاف إشارة المرور';
+            trafficLightToggle.classList.remove('bg-blue-600');
+            trafficLightToggle.classList.add('bg-red-600');
+
+            trafficState = 0; // Start with Green
+            updateTrafficLightLeds();
+            trafficLightInterval = setInterval(advanceTrafficLight, 5000); // Main cycle for Green/Red
+        }
+
+        function stopTrafficLight() {
+            if (!isTrafficLightRunning) return;
+            isTrafficLightRunning = false;
+            clearInterval(trafficLightInterval);
+            trafficLedRed.classList.remove('bg-red-500', 'light-on');
+            trafficLedYellow.classList.remove('bg-yellow-500', 'light-on');
+            trafficLedGreen.classList.remove('bg-green-500', 'light-on');
+            trafficLightToggle.textContent = 'تشغيل إشارة المرور';
+            trafficLightToggle.classList.remove('bg-red-600');
+            trafficLightToggle.classList.add('bg-blue-600');
+        }
+
+        trafficLightToggle.addEventListener('click', () => {
+            if (isTrafficLightRunning) {
+                stopTrafficLight();
+            } else {
+                startTrafficLight();
+            }
+        });
+
+        // Smart Lamp (LDR with Arduino Project) Logic
+        const smartLampLightLevelSlider = document.getElementById('smartLampLightLevel');
+        const smartLampLed = document.getElementById('smartLampLed');
+        const smartLampStatus = document.getElementById('smartLampStatus');
+
+        function updateSmartLampStatus() {
+            const lightValue = parseInt(smartLampLightLevelSlider.value);
+            if (lightValue < 400) {
+                smartLampLed.classList.add('light-on');
+                smartLampStatus.textContent = 'المصباح منور (الضوء قليل)!';
+            } else {
+                smartLampLed.classList.remove('light-on');
+                smartLampStatus.textContent = 'المصباح مطفية (الضوء كافي)';
+            }
+        }
+        smartLampLightLevelSlider.addEventListener('input', updateSmartLampStatus);
+        updateSmartLampStatus();
+
+        // Obstacle Avoiding Robot Logic
+        const robotIcon = document.getElementById('robotIcon');
+        const obstacleToggle = document.getElementById('obstacleToggle');
+        const robotStatus = document.getElementById('robotStatus');
+        let hasObstacle = false;
+        let robotCurrentAction = 'forward'; // 'forward', 'stop', 'turn', 'stop-after-turn'
+
+        function updateRobotVisual() {
+            if (hasObstacle) {
+                obstacleToggle.textContent = 'يوجد عائق 🛑';
+                obstacleToggle.classList.remove('bg-green-500');
+                obstacleToggle.classList.add('bg-red-500');
+            } else {
+                obstacleToggle.textContent = 'لا يوجد 🚧';
+                obstacleToggle.classList.remove('bg-red-500');
+                obstacleToggle.classList.add('bg-green-500');
+            }
+
+            if (hasObstacle) {
+                if (robotCurrentAction === 'forward') {
+                    robotStatus.textContent = 'الروبوت يكتشف عائق! يتوقف... 🛑';
+                    setTimeout(() => {
+                        robotCurrentAction = 'turn';
+                        updateRobotVisual();
+                    }, 1000); // Simulate stop delay
+                } else if (robotCurrentAction === 'turn') {
+                    robotStatus.textContent = 'الروبوت يدور لتجنب العائق... 🔄';
+                    robotIcon.style.animation = 'spin-turn 1s forwards'; // Apply turning animation
+                    setTimeout(() => {
+                        robotCurrentAction = 'stop-after-turn';
+                        updateRobotVisual();
+                    }, 1500); // Simulate turning delay
+                } else if (robotCurrentAction === 'stop-after-turn') {
+                    robotStatus.textContent = 'الروبوت يتوقف بعد الدوران. ⏸️';
+                    robotIcon.style.animation = 'none'; // Stop turning animation
+                    setTimeout(() => {
+                         robotCurrentAction = 'forward'; // Robot resumes forward after dealing with obstacle
+                         hasObstacle = false; // Obstacle cleared conceptually
+                         updateRobotVisual();
+                    }, 1000); // Simulate stop after turn delay
+                }
+            } else {
+                robotIcon.style.animation = 'none'; // Ensure no previous animation is running
+                robotStatus.textContent = 'الروبوت يتحرك للأمام ⬆️';
+                robotCurrentAction = 'forward';
+            }
+        }
+
+        obstacleToggle.addEventListener('click', () => {
+            hasObstacle = !hasObstacle;
+            updateRobotVisual();
+        });
+        updateRobotVisual(); // Initial state
+
+        // CSS for robot icon animation
+        const styleSheet = document.createElement('style');
+        styleSheet.type = 'text/css';
+        styleSheet.innerText = `
+            @keyframes spin-turn {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            @keyframes spin-forward {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            @keyframes spin-backward {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(-360deg); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+
+        // Initial state
+        showSection('intro');
+    </script>
+</body>
+</html>
